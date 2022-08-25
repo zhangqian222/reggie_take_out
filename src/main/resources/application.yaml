@@ -1,0 +1,15 @@
+# 指定tomcat端口
+server:
+  port: 8080
+spring:
+  application:
+    # 配置项目名
+    name: reggie_take_out
+  # 数据源配置
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/reggie
+      username: root
+      password: zq
+
