@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @Slf4j
@@ -58,5 +59,18 @@ public class EmployeeController {
             R<Employee> success = R.success(emp);
             return success;
         }
+    }
+
+    /**
+     * 退出
+     * @param session
+     * @return
+     */
+    @PostMapping("/logout")
+    public R<String> logout(HttpSession session){
+        //1.清理session中当前登录员工的信息
+        session.removeAttribute("employee");
+        //2.封装退出信息到R对象并返回
+        return R.success("退出成功");
     }
 }
